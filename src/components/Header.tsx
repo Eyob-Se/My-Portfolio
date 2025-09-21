@@ -47,13 +47,17 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <motion.div
-            className="text-2xl font-intern font-bold gradient-text"
+          <motion.img
+            src="/ES1.svg"
+            alt="Eyob.dev Logo"
+            className="h-12 w-auto cursor-pointer"
             onMouseEnter={() => setCursorVariant("text")}
             onMouseLeave={() => setCursorVariant("default")}
-          >
-            Eyob.dev
-          </motion.div>
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          />
 
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
