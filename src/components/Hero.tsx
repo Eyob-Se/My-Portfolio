@@ -27,6 +27,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
+      id="hero"
       ref={ref}
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-100 to-blue-100 dark:from-primone dark:to-primtwo"
     >

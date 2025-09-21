@@ -57,6 +57,10 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1, rotate: 2 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
+            onClick={() => {
+              const hero = document.getElementById("hero");
+              hero?.scrollIntoView({ behavior: "smooth" });
+            }}
           />
 
           <nav className="hidden md:flex space-x-8">
