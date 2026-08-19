@@ -1,69 +1,132 @@
 html {
   scroll-behavior: smooth;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  scrollbar-gutter: stable;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #f8fafc;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border: 3px solid #f8fafc;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+.dark * {
+  scrollbar-color: #64748b #272624;
+}
+
+.dark *::-webkit-scrollbar-track {
+  background: #272624;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-color: #272624;
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
 }
 
 @font-face {
-  font-family: "Eyob";
-  src: url("/fonts/Eyob-Bold.otf");
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash/ClashDisplay-Bold.otf");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Eyob";
-  src: url("/fonts/Eyob-Regular.otf");
+  font-family: "ClashDisplay";
+  src: url("/fonts/clash/ClashDisplay-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope/manrope-medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope/manrope-bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope/manrope-light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope/manrope-regular.otf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Nav";
-  src: url("/fonts/navfont.otf");
+  font-family: "Space";
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Intern";
-  src: url("/fonts/intern.ttf");
-  font-weight: normal;
+  font-family: "Space";
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Space";
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Space";
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
   font-style: normal;
 }
 
 body {
   cursor: none;
   overflow-x: hidden;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #2563eb;
 }
 
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass-morphism {
-  background: rgba(15, 23, 42, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.floating-animation {
-  animation: floating 6s ease-in-out infinite;
-}
-
-@keyframes floating {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.dark .gradient-text {
+  color: #60a5fa;
 }
 
 .glow-effect {
@@ -71,5 +134,5 @@ body {
 }
 
 .dark .glow-effect {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
 }

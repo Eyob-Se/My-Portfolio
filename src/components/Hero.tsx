@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
             <motion.div className="flex items-center justify-center gap-3">
               <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-blue-500 relative">
                 <img
-                  src="/1.png"
+                  src="/1.webp"
                   alt="Eyob Seleshi"
                   className="absolute w-full h-full object-contain"
                   style={{
@@ -96,23 +96,25 @@ const Hero: React.FC = () => {
                 />
               </div>
 
-              <span className="text-gray-800 dark:text-white font-intern">
+              <span className="text-gray-800 dark:text-white font-heading">
                 {" "}
                 Hi, I'm{" "}
               </span>
-              <span className="text-[#3b82f6] font-namefont">Eyob Seleshi</span>
+              <span className="text-[#3b82f6] font-heading font-medium">
+                Eyob Seleshi
+              </span>
             </motion.div>
           </motion.h1>
 
           <motion.h2
-            className="font-intern text-2xl md:text-4xl font-semibold mb-6 text-gray-700 dark:text-gray-300"
+            className="font-uibod text-2xl md:text-4xl font-normal mb-6 text-gray-700 dark:text-gray-300"
             variants={itemVariants}
           >
             Turning ideas into powerful digital experiences
           </motion.h2>
 
           <motion.p
-            className="font-intern text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="font-microlab  text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
             variants={itemVariants}
           >
             Software Engineer & Full-Stack Developer passionate about building
@@ -122,7 +124,7 @@ const Hero: React.FC = () => {
 
         <motion.div
           variants={itemVariants}
-          className="font-intern flex flex-wrap justify-center gap-4 mb-11"
+          className="font-microlab flex flex-wrap justify-center gap-4 mb-11"
         >
           <motion.button
             className="px-8 py-4 bg-blue-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 glow-effect"

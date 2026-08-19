@@ -1,7 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { useCursor } from "../context/CursorContext";
 
 const Contact: React.FC = () => {
@@ -16,19 +22,22 @@ const Contact: React.FC = () => {
       icon: Mail,
       label: "Email",
       value: "messieyob346@gmail.com",
-      href: "messieyob346@gmail.com",
+      href: "mailto:messieyob346@gmail.com",
+      external: false,
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+251 987 123 752",
-      href: "tel:+15551234567",
+      href: "tel:+251987123752",
+      external: false,
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Addis Ababa, Ethiopia",
-      href: "#",
+      href: "https://www.google.com/maps/search/?api=1&query=Addis+Ababa+Ethiopia",
+      external: true,
     },
   ];
 
@@ -56,7 +65,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-20 bg-gradient-to-br from-slate-100 to-blue-100 dark:bg-gradient-to-br dark:from-primone dark:to-primtwo transition-colors duration-300"
+      className="relative overflow-hidden bg-slate-50 py-24 transition-colors duration-300 dark:bg-primone"
     >
       {[1].map((i) => (
         <div
@@ -103,17 +112,16 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-14 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Let's Connect
+          <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            Let&apos;s work together.
           </h2>
-          <p className="font-intern text-lg text-gray-800 dark:text-gray-300 max-w-2xl mx-auto mb-2">
-            🚀 Let's build something amazing together.
+          <p className="mx-auto mb-2 max-w-2xl font-uibod text-lg font-medium text-gray-800 dark:text-gray-300">
+            Have a project in mind or an idea you want to talk through?
           </p>
-          <p className="font-intern text-gray-800 dark:text-gray-300">
-            Have a project in mind or just want to say hello? I'd love to hear
-            from you.
+          <p className="font-uibod text-gray-600 dark:text-gray-400">
+            Send me a message and I&apos;ll get back to you.
           </p>
         </motion.div>
 
@@ -124,9 +132,9 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <h3 className="font-intern text-2xl font-bold text-gray-800 dark:text-white mb-6">
+            <h3 className="mb-5 font-heading text-2xl font-bold text-gray-800 dark:text-white">
               Get in Touch
             </h3>
             <div className="space-y-4">
@@ -136,20 +144,22 @@ const Contact: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center group"
+                  className="group flex items-center rounded-2xl border border-gray-200/80 bg-white/70 px-4 py-3 shadow-sm transition-colors hover:border-blue-200 dark:border-white/10 dark:bg-primthree/60 dark:hover:border-blue-400/30"
                   onMouseEnter={() => setCursorVariant("button")}
                   onMouseLeave={() => setCursorVariant("default")}
                 >
-                  <div className="w-12 h-12 bg-blue-500 dark:bg-primone rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                    <item.icon className="w-6 h-6 text-white" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500 text-white transition-transform duration-200 group-hover:scale-105">
+                    <item.icon className="h-5 w-5" />
                   </div>
-                  <div className="ml-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="ml-4 min-w-0">
+                    <p className="font-microlab text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
                       {item.label}
                     </p>
                     <a
                       href={item.href}
-                      className="text-gray-800 dark:text-white hover:text-blue-500 transition-colors duration-200"
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="break-words font-microlab text-sm text-gray-800 transition-colors duration-200 hover:text-blue-500 dark:text-white"
                     >
                       {item.value}
                     </a>
@@ -164,19 +174,23 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center rounded-3xl border border-gray-200/80 bg-white/60 p-8 text-center shadow-sm dark:border-white/10 dark:bg-primthree/60"
           >
-            <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
-              Follow Me
+            <h4 className="mb-2 font-heading text-2xl font-semibold text-gray-800 dark:text-white">
+              Find me online
             </h4>
-            <div className="flex space-x-6">
+            <p className="mb-6 max-w-xs font-microlab text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              You can find more of my work and professional updates here.
+            </p>
+            <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-12 h-12 bg-blue-500 dark:bg-primone rounded-lg flex items-center justify-center text-white dark:text-blue-500 ${social.color} transition-all duration-200`}
+                  className={`flex h-12 w-12 items-center justify-center rounded-xl border border-blue-500 bg-blue-500 text-white transition-all duration-200 dark:bg-transparent dark:text-blue-400 ${social.color}`}
                   onMouseEnter={() => setCursorVariant("button")}
                   onMouseLeave={() => setCursorVariant("default")}
                   initial={{ opacity: 0, y: 20 }}
@@ -184,7 +198,7 @@ const Contact: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -2 }}
                 >
-                  <social.icon className=" w-6 h-6" />
+                  <social.icon className="h-5 w-5" />
                 </motion.a>
               ))}
             </div>

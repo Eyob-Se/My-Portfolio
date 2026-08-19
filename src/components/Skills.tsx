@@ -1,232 +1,140 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Braces, Database, Layers3, Server, Wrench } from "lucide-react";
 import { useCursor } from "../context/CursorContext";
 
 const Skills: React.FC = () => {
   const { setCursorVariant } = useCursor();
-  const { ref, inView } = useInView({
-    threshold: 0.4,
-    triggerOnce: false,
-  });
+  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
 
   const skillCategories = [
     {
-      title: "Frontend",
-      skills: [
-        { name: "React", level: 95, color: "from-blue-400 to-blue-600" },
-        { name: "TypeScript", level: 90, color: "from-blue-500 to-blue-700" },
-        { name: "Next.js", level: 85, color: "from-gray-700 to-gray-900" },
-        { name: "Tailwind CSS", level: 92, color: "from-cyan-400 to-cyan-600" },
-        {
-          name: "Framer Motion",
-          level: 88,
-          color: "from-pink-400 to-pink-600",
-        },
-      ],
+      title: "Frontend craft",
+      eyebrow: "Interfaces",
+      description:
+        "Responsive, accessible interfaces with a considered visual rhythm.",
+      icon: Braces,
+      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
     },
     {
-      title: "Backend",
-      skills: [
-        { name: "Node.js", level: 90, color: "from-green-400 to-green-600" },
-        { name: "Python", level: 85, color: "from-yellow-400 to-yellow-600" },
-        { name: "Express.js", level: 88, color: "from-gray-600 to-gray-800" },
-      ],
+      title: "Backend systems",
+      eyebrow: "Architecture",
+      description:
+        "Reliable APIs and server-side foundations that grow with the product.",
+      icon: Server,
+      skills: ["Node.js", "Python", "Express.js", "REST APIs"],
     },
     {
-      title: "Database",
-      skills: [
-        {
-          name: "PostgreSQL",
-          level: 88,
-          color: "from-indigo-400 to-indigo-600",
-        },
-        { name: "MongoDB", level: 85, color: "from-green-500 to-green-700" },
-        { name: "Redis", level: 80, color: "from-red-400 to-red-600" },
-        {
-          name: "MySQL",
-          level: 90,
-          color: "from-emerald-400 to-emerald-600",
-        },
-      ],
+      title: "Data foundations",
+      eyebrow: "Persistence",
+      description:
+        "Structured data models and practical storage choices for real workflows.",
+      icon: Database,
+      skills: ["PostgreSQL", "MongoDB", "MySQL", "GeoServer"],
     },
     {
-      title: "DevOps & Tools",
-      skills: [
-        { name: "Docker", level: 85, color: "from-blue-500 to-blue-700" },
-        { name: "Git", level: 95, color: "from-red-500 to-red-700" },
-        { name: "Linux", level: 82, color: "from-yellow-500 to-yellow-700" },
-      ],
+      title: "Delivery toolkit",
+      eyebrow: "Workflow",
+      description:
+        "A calm, repeatable workflow from local development to deployment.",
+      icon: Wrench,
+      skills: ["Docker", "Git", "Linux"],
     },
   ];
 
   return (
     <section
       id="skills"
-      className="relative py-20 bg-white dark:bg-primthree transition-colors duration-300"
+      ref={ref}
+      className="relative overflow-hidden bg-white py-24 transition-colors duration-300 dark:bg-primthree"
     >
-      {[1].map((i) => (
-        <div
-          key={`v-${i}`}
-          className="absolute top-0 bottom-0 w-px
-      bg-gradient-to-b 
-      from-transparent 
-      via-black/30 dark:via-white/30 
-      to-transparent"
-          style={{
-            left: `${i * 50}%`,
-          }}
-        />
-      ))}
-      {[1].map((i) => (
-        <div
-          key={`h-${i}`}
-          className="absolute left-0 right-0 h-px
-      bg-gradient-to-r 
-      from-transparent 
-      via-black/30 dark:via-white/30 
-      to-transparent"
-          style={{
-            top: `${i * 26.33}%`,
-          }}
-        />
-      ))}
-
-      {[1].map((i) => (
-        <div
-          key={`h-${i}`}
-          className="absolute left-0 right-0 h-px
-      bg-gradient-to-r 
-      from-transparent 
-      via-black/30 dark:via-white/30 
-      to-transparent "
-          style={{
-            top: `${i * 73.33}%`,
-          }}
-        />
-      ))}
-
+      <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] [background-size:72px_72px] dark:opacity-20 dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]" />
       <motion.div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[150px] rounded-full bg-[#EEEACA] opacity-30 blur-[150px] pointer-events-none z-0"
-        animate={{ opacity: [0.2, 0.4, 0.2] }}
-        transition={{
-          duration: 4, // how long one pulse cycle takes
-          repeat: Infinity, // loop forever
-          ease: "easeInOut", // smooth fading
-        }}
+        className="pointer-events-none absolute left-1/2 top-0 h-[180px] w-[900px] -translate-x-1/2 rounded-full bg-blue-200/50 blur-[150px] dark:bg-blue-500/10"
+        animate={{ opacity: [0.35, 0.7, 0.35] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container relative z-10 mx-auto px-6">
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <h2 className="font-intern text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Skills & Technologies
+          <p className="mb-4 font-microlab text-sm font-medium uppercase tracking-[0.28em] text-blue-500 dark:text-blue-400">
+            The toolkit
+          </p>
+          <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            Skills that support the{" "}
+            <span className="gradient-text">whole picture.</span>
           </h2>
-          <p className="font-intern text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise across different
-            domains of software development.
+          <p className="font-uibod text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+            I bring design awareness and engineering discipline together to
+            create digital experiences that feel clear, capable, and complete.
           </p>
         </motion.div>
 
-        <div className="font-intern grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="bg-gradient-to-br from-slate-100 to-blue-100 dark:from-primone dark:to-primtwo rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-              onMouseEnter={() => setCursorVariant("button")}
-              onMouseLeave={() => setCursorVariant("default")}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white text-center">
-                {category.title}
-              </h3>
-
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                      duration: 0.6,
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                    }}
-                    className="space-y-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    <div className="relative h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
-                      <motion.div
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                          ease: "easeOut",
-                        }}
-                      />
-                      <motion.div
-                        className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{
-                          duration: 2,
-                          delay: categoryIndex * 0.3 + skillIndex * 0.1,
-                          ease: "easeInOut",
-                        }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {skillCategories.map((category, categoryIndex) => {
+            const Icon = category.icon;
+            return (
+              <motion.article
+                key={category.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.55, delay: categoryIndex * 0.08 }}
+                whileHover={{ y: -7 }}
+                className="group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-gradient-to-br from-slate-50 to-blue-50 p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-blue-900/10 dark:border-white/10 dark:from-primone dark:to-primtwo"
+                onMouseEnter={() => setCursorVariant("button")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-blue-500" />
+                <div className="mb-7 flex items-start justify-between">
+                  <div className="rounded-xl bg-blue-500 p-3 text-white shadow-lg">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-microlab text-xs font-medium uppercase tracking-[0.18em] text-gray-400">
+                    0{categoryIndex + 1}
+                  </span>
+                </div>
+                <p className="mb-2 font-microlab text-xs font-medium uppercase tracking-[0.18em] text-blue-500 dark:text-blue-400">
+                  {category.eyebrow}
+                </p>
+                <h3 className="mb-3 font-heading text-xl font-bold text-gray-900 dark:text-white">
+                  {category.title}
+                </h3>
+                <p className="mb-6 min-h-[72px] font-microlab text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  {category.description}
+                </p>
+                <div className="flex flex-wrap gap-2 border-t border-gray-900/10 pt-5 dark:border-white/10">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-lg bg-white/80 px-2.5 py-1.5 font-microlab text-xs font-medium text-gray-700 shadow-sm dark:bg-white/10 dark:text-gray-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
 
-        {/* Floating skill icons */}
-        <div className="relative mt-16 h-32 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {["⚛️", "🐍", "🐳", "⚡", "🚀", "💾", "🌐", "🔧"].map(
-              (icon, index) => (
-                <motion.div
-                  key={index}
-                  className="absolute text-4xl opacity-20 dark:opacity-10"
-                  animate={{
-                    y: [0, -20, 0],
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 3 + index * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.3,
-                  }}
-                  style={{
-                    left: `${10 + index * 10}%`,
-                    top: `${20 + (index % 3) * 20}%`,
-                  }}
-                >
-                  {icon}
-                </motion.div>
-              )
-            )}
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-3 rounded-2xl border border-blue-200/70 bg-blue-50/70 px-5 py-4 text-center dark:border-blue-400/10 dark:bg-blue-400/5"
+        >
+          <Layers3 className="h-5 w-5 shrink-0 text-blue-500" />
+          <p className="font-microlab text-sm text-gray-600 dark:text-gray-300">
+            Always learning, always refining — the stack evolves, but the focus
+            stays on useful experiences.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

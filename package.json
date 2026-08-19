@@ -10,18 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
-    "@react-three/drei": "^9.88.11",
-    "@react-three/fiber": "^8.15.12",
-    "@supabase/supabase-js": "^2.57.4",
     "framer-motion": "^12.23.14",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.62.0",
-    "react-intersection-observer": "^9.16.0",
-    "three": "^0.149.0",
-    "yup": "^1.7.0"
+    "react-intersection-observer": "^9.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

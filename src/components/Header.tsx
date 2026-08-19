@@ -1,48 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useCursor } from "../context/CursorContext";
+import { useTheme } from "../context/ThemeContext";
 import { Menu, Moon, Sun, X } from "lucide-react";
 
 const Header: React.FC = () => {
   const { setCursorVariant } = useCursor();
+  const { isDark, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 32);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = ["About", "Projects", "Skills", "Contact"];
 
-  // Theme state management
-  const [isDark, setIsDark] = useState(
-    typeof window !== "undefined"
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches
-      : false
-  );
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const handleNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    item: string,
+  ) => {
+    event.preventDefault();
+    document.getElementById(item.toLowerCase())?.scrollIntoView({
+      behavior: "smooth",
+    });
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-4 w-full z-40 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 dark:bg-transparent backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          ? "border-gray-200/70 bg-white/90 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-primone/90"
+          : "border-transparent bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -68,10 +65,11 @@ const Header: React.FC = () => {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 font-navfont dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
+                className="text-gray-700 font-microlab font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200"
                 onMouseEnter={() => setCursorVariant("button")}
                 onMouseLeave={() => setCursorVariant("default")}
                 whileHover={{ y: -2 }}
+                onClick={(event) => handleNavClick(event, item)}
               >
                 {item}
               </motion.a>
@@ -119,7 +117,7 @@ const Header: React.FC = () => {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(event) => handleNavClick(event, item)}
               >
                 {item}
               </a>

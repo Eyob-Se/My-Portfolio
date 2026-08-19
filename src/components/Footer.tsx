@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useCursor } from "../context/CursorContext";
 
 const Footer: React.FC = () => {
@@ -18,11 +18,9 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-intern flex items-center text-gray-600 dark:text-gray-400 mb-4 md:mb-0"
+            className="font-microlab font-medium flex items-center text-gray-600 dark:text-gray-400 mb-4 md:mb-0"
           >
-            <span>Made with</span>
-            <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" />
-            <span>by Eyob Seleshi</span>
+            Made by Eyob Seleshi
           </motion.div>
 
           <motion.div
@@ -31,7 +29,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center space-x-4"
           >
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="font-microlab font-medium text-gray-600 dark:text-gray-400 text-sm">
               © 2025 All rights reserved
             </p>
             <button

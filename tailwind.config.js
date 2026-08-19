@@ -10,9 +10,9 @@ export default {
         primthree: "#272624",
       },
       fontFamily: {
-        namefont: ["Eyob", "sans-serif"],
-        navfont: ["Nav", "sans-serif"],
-        intern: ["Intern", "sans-serif"],
+        heading: ["ClashDisplay", "sans-serif"],
+        uibod: ["Manrope", "sans-serif"],
+        microlab: ["Space", "sans-serif"],
       },
     },
   },
