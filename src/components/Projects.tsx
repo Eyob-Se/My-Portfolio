@@ -253,7 +253,7 @@ const Projects: React.FC = () => {
     <section
       id="projects"
       ref={ref}
-      className="relative overflow-hidden bg-slate-50 py-24 transition-colors duration-300 dark:bg-primone"
+      className="relative overflow-hidden bg-slate-50 py-16 transition-colors duration-300 dark:bg-primone sm:py-24"
     >
       {[1, 2].map((i) => (
         <div
@@ -269,18 +269,18 @@ const Projects: React.FC = () => {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+          className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between"
         >
           <div className="max-w-2xl">
             <p className="mb-4 font-microlab text-sm font-medium uppercase tracking-[0.28em] text-blue-500 dark:text-blue-400">
               A few things I've made
             </p>
-            <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-5 font-heading text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
               Some work I'm <span className="text-blue-500">proud of.</span>
             </h2>
             <p className="font-uibod text-lg leading-relaxed text-gray-600 dark:text-gray-300">
@@ -299,7 +299,7 @@ const Projects: React.FC = () => {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveFilter(filter.value)}
-                  className={`flex items-center gap-2 rounded-xl px-4 py-3 font-microlab text-sm font-medium transition-all duration-200 ${
+                  className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-3 font-microlab text-sm font-medium transition-all duration-200 sm:flex-none sm:px-4 ${
                     isActive
                       ? "bg-gray-900 text-white shadow-lg dark:bg-white dark:text-gray-900"
                       : "text-gray-600 hover:bg-white hover:text-gray-900 dark:text-gray-300 dark:hover:bg-white/10 dark:hover:text-white"
@@ -479,7 +479,7 @@ const Projects: React.FC = () => {
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="project-dialog-title"
-                    className="max-h-[90vh] w-full max-w-3xl overscroll-contain overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl dark:bg-primthree sm:p-7"
+                    className="max-h-[90vh] w-full max-w-3xl overscroll-contain overflow-y-auto rounded-2xl bg-white p-4 shadow-2xl dark:bg-primthree sm:p-7"
                     onClick={(event) => event.stopPropagation()}
                   >
                     <div className="mb-5 flex items-start justify-between gap-4">

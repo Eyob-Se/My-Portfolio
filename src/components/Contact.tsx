@@ -1,20 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useCursor } from "../context/CursorContext";
 
 const Contact: React.FC = () => {
   const { setCursorVariant } = useCursor();
   const { ref, inView } = useInView({
     threshold: 0.3,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   const contactInfo = [
@@ -65,7 +59,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-slate-50 py-24 transition-colors duration-300 dark:bg-primone"
+      className="relative overflow-hidden bg-slate-50 py-16 transition-colors duration-300 dark:bg-primone sm:py-24"
     >
       {[1].map((i) => (
         <div
@@ -105,16 +99,16 @@ const Contact: React.FC = () => {
         }}
       />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Heading */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-14 text-center"
         >
-          <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
             Let&apos;s work together.
           </h2>
           <p className="mx-auto mb-2 max-w-2xl font-uibod text-lg font-medium text-gray-800 dark:text-gray-300">
@@ -126,11 +120,11 @@ const Contact: React.FC = () => {
         </motion.div>
 
         {/* Contact + Socials */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 md:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
@@ -142,7 +136,7 @@ const Contact: React.FC = () => {
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="group flex items-center rounded-2xl border border-gray-200/80 bg-white/70 px-4 py-3 shadow-sm transition-colors hover:border-blue-200 dark:border-white/10 dark:bg-primthree/60 dark:hover:border-blue-400/30"
                   onMouseEnter={() => setCursorVariant("button")}
@@ -172,7 +166,7 @@ const Contact: React.FC = () => {
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col items-center justify-center rounded-3xl border border-gray-200/80 bg-white/60 p-8 text-center shadow-sm dark:border-white/10 dark:bg-primthree/60"
           >
@@ -194,7 +188,7 @@ const Contact: React.FC = () => {
                   onMouseEnter={() => setCursorVariant("button")}
                   onMouseLeave={() => setCursorVariant("default")}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -2 }}
                 >

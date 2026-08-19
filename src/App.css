@@ -95,13 +95,15 @@ section[id] {
 }
 @font-face {
   font-family: "Space";
-  src: url("/fonts/space/woff2/static/SpaceGrotesk-Medium.woff2") format("woff2");
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Medium.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Space";
-  src: url("/fonts/space/woff2/static/SpaceGrotesk-Regular.woff2") format("woff2");
+  src: url("/fonts/space/woff2/static/SpaceGrotesk-Regular.woff2")
+    format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -119,6 +121,12 @@ body {
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
+}
+
+@media (max-width: 767px) {
+  body {
+    cursor: auto;
+  }
 }
 
 .gradient-text {

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useCursor } from '../context/CursorContext';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useCursor } from "../context/CursorContext";
 
 const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -10,12 +10,12 @@ const CustomCursor: React.FC = () => {
     const mouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
-        y: e.clientY
+        y: e.clientY,
       });
     };
 
-    window.addEventListener('mousemove', mouseMove);
-    return () => window.removeEventListener('mousemove', mouseMove);
+    window.addEventListener("mousemove", mouseMove);
+    return () => window.removeEventListener("mousemove", mouseMove);
   }, []);
 
   const variants = {
@@ -39,18 +39,18 @@ const CustomCursor: React.FC = () => {
       y: mousePosition.y - 40,
       backgroundColor: "rgba(139, 92, 246, 0.4)",
       scale: 1,
-    }
+    },
   };
 
   return (
     <motion.div
-      className="fixed top-0 left-0 z-[70] h-8 w-8 pointer-events-none rounded-full bg-blue-500 mix-blend-difference"
+      className="pointer-events-none fixed left-0 top-0 z-[70] hidden h-8 w-8 rounded-full bg-blue-500 mix-blend-difference md:block"
       variants={variants}
       animate={cursorVariant}
       transition={{
         type: "tween",
         ease: "backOut",
-        duration: 0.3
+        duration: 0.3,
       }}
     />
   );

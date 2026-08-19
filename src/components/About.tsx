@@ -38,22 +38,26 @@ const About: React.FC = () => {
     {
       icon: Zap,
       title: "Built for momentum",
-      description: "Practical solutions that move from idea to working product without unnecessary complexity.",
+      description:
+        "Practical solutions that move from idea to working product without unnecessary complexity.",
     },
     {
       icon: Layers3,
       title: "Design-aware code",
-      description: "Thoughtful visual decisions carried through into clean, maintainable implementation.",
+      description:
+        "Thoughtful visual decisions carried through into clean, maintainable implementation.",
     },
     {
       icon: Compass,
       title: "Clear collaboration",
-      description: "Simple communication, visible progress, and a shared understanding of the goal.",
+      description:
+        "Simple communication, visible progress, and a shared understanding of the goal.",
     },
     {
       icon: Sparkles,
       title: "Details with purpose",
-      description: "Polished interactions that support the experience rather than distract from it.",
+      description:
+        "Polished interactions that support the experience rather than distract from it.",
     },
   ];
 
@@ -61,7 +65,7 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="relative overflow-hidden bg-white py-24 transition-colors duration-300 dark:bg-primthree"
+      className="relative overflow-hidden bg-white py-16 transition-colors duration-300 dark:bg-primthree sm:py-24"
     >
       {[1, 2].map((i) => (
         <div
@@ -76,7 +80,7 @@ const About: React.FC = () => {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -87,7 +91,8 @@ const About: React.FC = () => {
             A little about me
           </p>
           <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
-            Thoughtful work, from <span className="gradient-text">both sides.</span>
+            Thoughtful work, from{" "}
+            <span className="gradient-text">both sides.</span>
           </h2>
           <p className="font-uibod text-lg leading-relaxed text-gray-700 dark:text-gray-300">
             I specialize in full-stack development and visual design — bringing
@@ -136,7 +141,9 @@ const About: React.FC = () => {
                         <Icon className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="mb-1 font-heading font-semibold">{item.title}</h4>
+                        <h4 className="mb-1 font-heading font-semibold">
+                          {item.title}
+                        </h4>
                         <p className="font-microlab text-xs leading-relaxed text-white/55">
                           {item.description}
                         </p>
@@ -166,7 +173,9 @@ const About: React.FC = () => {
                     <div className="rounded-xl bg-white p-3 text-blue-500 shadow-sm transition duration-300 group-hover:scale-110 dark:bg-white/10">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-microlab text-xs text-gray-400">0{index + 1}</span>
+                    <span className="font-microlab text-xs text-gray-400">
+                      0{index + 1}
+                    </span>
                   </div>
                   <h4 className="mb-3 font-heading text-xl font-bold text-gray-900 dark:text-white">
                     {feature.title}

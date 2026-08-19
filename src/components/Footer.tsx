@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-50 dark:bg-primthree border-t border-gray-200 dark:border-gray-600 transition-colors duration-300">
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-4 py-8 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

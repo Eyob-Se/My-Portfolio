@@ -42,12 +42,12 @@ const Header: React.FC = () => {
           : "border-transparent bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 py-3 sm:px-6 sm:py-4">
         <div className="flex justify-between items-center">
-          <motion.img
-            src="/ES1.svg"
-            alt="Eyob.dev Logo"
-            className="h-12 w-auto cursor-pointer"
+          <motion.button
+            type="button"
+            aria-label="Go to the homepage"
+            className="cursor-pointer font-heading text-xl font-bold text-gray-900 dark:text-white sm:text-2xl"
             onMouseEnter={() => setCursorVariant("text")}
             onMouseLeave={() => setCursorVariant("default")}
             initial={{ opacity: 0, y: -20 }}
@@ -58,7 +58,9 @@ const Header: React.FC = () => {
               const hero = document.getElementById("hero");
               hero?.scrollIntoView({ behavior: "smooth" });
             }}
-          />
+          >
+            Eyob-Se
+          </motion.button>
 
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
@@ -76,10 +78,10 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-300 dark:bg-primthree hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 dark:text-white"
+              className="rounded-lg bg-gray-300 p-2 dark:bg-primthree dark:text-white dark:hover:bg-gray-600 hover:bg-gray-300 transition-colors duration-200"
               onMouseEnter={() => setCursorVariant("button")}
               onMouseLeave={() => setCursorVariant("default")}
               whileHover={{ scale: 1.1 }}
@@ -93,7 +95,7 @@ const Header: React.FC = () => {
             </motion.button>
 
             <button
-              className="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700"
+              className="rounded-lg bg-gray-200 p-2 dark:bg-gray-700 md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -110,7 +112,7 @@ const Header: React.FC = () => {
           <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 p-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg"
+            className="mt-3 rounded-lg bg-white p-4 shadow-lg dark:bg-slate-800 md:hidden sm:mt-4"
           >
             {navItems.map((item) => (
               <a

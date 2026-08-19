@@ -78,12 +78,12 @@ const Hero: React.FC = () => {
       >
         <motion.div variants={itemVariants} className="mb-8">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-4"
+            className="mb-4 text-4xl font-bold sm:text-5xl md:text-7xl"
             onMouseEnter={() => setCursorVariant("text")}
             onMouseLeave={() => setCursorVariant("default")}
           >
-            <motion.div className="flex items-center justify-center gap-3">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-blue-500 relative">
+            <motion.div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-blue-500 sm:h-32 sm:w-32">
                 <img
                   src="/1.webp"
                   alt="Eyob Seleshi"
@@ -107,14 +107,14 @@ const Hero: React.FC = () => {
           </motion.h1>
 
           <motion.h2
-            className="font-uibod text-2xl md:text-4xl font-normal mb-6 text-gray-700 dark:text-gray-300"
+            className="mb-6 px-2 font-uibod text-xl font-normal text-gray-700 dark:text-gray-300 sm:text-2xl md:text-4xl"
             variants={itemVariants}
           >
             Turning ideas into powerful digital experiences
           </motion.h2>
 
           <motion.p
-            className="font-microlab  text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl px-2 font-microlab text-base text-gray-600 dark:text-gray-300 sm:text-lg md:text-xl"
             variants={itemVariants}
           >
             Software Engineer & Full-Stack Developer passionate about building
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
           className="font-microlab flex flex-wrap justify-center gap-4 mb-11"
         >
           <motion.button
-            className="px-8 py-4 bg-blue-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 glow-effect"
+            className="rounded-lg bg-blue-500 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 glow-effect hover:shadow-xl sm:px-8 sm:py-4"
             onMouseEnter={() => setCursorVariant("button")}
             onMouseLeave={() => setCursorVariant("default")}
             whileHover={{ scale: 1.05, y: -2 }}
@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
           </motion.button>
 
           <motion.button
-            className="px-8 py-4 bg-transparent border-2 border-blue-500 text-blue-500 dark:text-white rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300"
+            className="rounded-lg border-2 border-blue-500 bg-transparent px-6 py-3 font-semibold text-blue-500 transition-all duration-300 hover:bg-blue-500 hover:text-white dark:text-white sm:px-8 sm:py-4"
             onMouseEnter={() => setCursorVariant("button")}
             onMouseLeave={() => setCursorVariant("default")}
             whileHover={{ scale: 1.05, y: -2 }}

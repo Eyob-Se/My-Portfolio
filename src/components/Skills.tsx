@@ -47,7 +47,7 @@ const Skills: React.FC = () => {
     <section
       id="skills"
       ref={ref}
-      className="relative overflow-hidden bg-white py-24 transition-colors duration-300 dark:bg-primthree"
+      className="relative overflow-hidden bg-white py-16 transition-colors duration-300 dark:bg-primthree sm:py-24"
     >
       <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] [background-size:72px_72px] dark:opacity-20 dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]" />
       <motion.div
@@ -56,7 +56,7 @@ const Skills: React.FC = () => {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -66,7 +66,7 @@ const Skills: React.FC = () => {
           <p className="mb-4 font-microlab text-sm font-medium uppercase tracking-[0.28em] text-blue-500 dark:text-blue-400">
             The toolkit
           </p>
-          <h2 className="mb-5 font-heading text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
             Skills that support the{" "}
             <span className="gradient-text">whole picture.</span>
           </h2>
